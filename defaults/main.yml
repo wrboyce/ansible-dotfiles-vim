@@ -1,0 +1,2 @@
+---
+vim_vimrc_repo: https://github.com/{{ user_username }}/vimrc.git

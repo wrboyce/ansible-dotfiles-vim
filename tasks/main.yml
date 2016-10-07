@@ -1,0 +1,13 @@
+---
+- name: install vimrc
+  git: repo={{ vim_vimrc_repo }} accept_hostkey=yes
+       dest={{ user_home }}/.vim track_submodules=yes update=no
+  tags: [vim, config, dotfiles]
+
+- name: set vimrc owner
+  file: path={{ user_home }}/.vim owner={{ user_username }}
+  tags: [vim, config, dotfiles]
+
+- name: activate vim config
+  file: src={{ user_home }}/.vim/vimrc dest={{ user_home }}/.vimrc state=link owner={{ user_username }}
+  tags: [vim, config, dotfiles]
